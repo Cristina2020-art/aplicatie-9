@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicatie D</title>
+</head>
+<body>
+    <form>
+		<h1 id="mainTitle">&nbsp;</h1>
+	
+		<fieldset class="question" id="title" data-validation="vrule_btn_required">
+		<legend>Title</legend>
+		<input type="radio" name="title" value="Mr" id="Mr"><label for="Mr" class="single-line">Mr</label>
+		<input type="radio" name="title" value="Miss" id="Miss"><label for="Miss" class="single-line">Miss</label>
+		<input type="radio" name="title" value="Mrs" id="Mrs"><label for="Mrs" class="single-line">Mrs</label>
+		<input type="radio" name="title" value="Ms" id="Ms"><label for="Ms" class="single-line">Ms</label>
+		<input type="radio" name="title" value="Prof" id="Prof"><label for="Prof" class="single-line">Prof</label>
+		<input type="radio" name="title" value="Dr" id="Dr"><label for="Dr" class="single-line">Dr</label><br>
+		<span class="error-message"></span><br>
+	</fieldset><br>
+	
+	<div class="question">	
+		<label for="firstName" class="single-line">First Name</label>
+		<input type="text" id="firstName" name="firstName" data-validation="vrule_required, vrule_textInput, vrule_minLength(3)" />
+
+		<span class="error-message"></span>
+	</div><br>
+
+	<div class="question">
+		<label for="secondName" class="single-line">Second Name</label>
+		<input type="text" id="secondName" name="secondName" data-validation="vrule_required, vrule_textInput, vrule_minLength(3)" />
+
+		<span class="error-message"></span>
+	</div><br>
+
+	<div class="question">
+		<label for="dateOfBirth" class="single-line">Date of Birth</label>
+		<span class="date-input type-day">
+			<span>DD</span>
+			<input type="tel" class="day" id="DOBDay" name="DOBDay" maxlength="2" placeholder="DD"><br><br>
+		</span>
+		<span class="date-input type-month">
+			<span>MM</span>
+			<input type="tel" class="month" id="DOBMonth" name="DOBMonth" maxlength="2" placeholder="MM"><br><br>
+		</span>
+		<span class="date-input type-year last">
+			<span>YYYY</span>
+			<input type="tel" class="year" id="DOBYear" name="DOBYear" maxlength="4" placeholder="YYYY"><br>
+		</span>
+
+		<p class="example-text">e.g. 26  07  1989</p>
+		<input type="hidden" id="dateOfBirth" name="dateOfBirth" data-validation="vrule_required, vrule_date, vrule_ageRange(21,65)">
+		<span class="error-message"></span>
+	</div>
+
+	<div class="question">
+		<label for="contactNo" class="double-line">Phone Number</label>
+		<input type="text" id="contactNo" name="contactNo" data-validation="vrule_required, vrule_anyPhone" />
+
+		<span class="error-message"></span>
+	</div><br>
+
+	<div class="question">
+		<label for="emailAddress" class="single-line">Email Address</label>
+		<input type="email" id="emailAddress" name="emailAddress" data-validation="vrule_required, vrule_email" />
+
+		<span class="error-message"></span>
+	</div><br>	
+
+	<button type="button">Submit</button>
+</form>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

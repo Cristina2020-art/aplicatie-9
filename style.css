@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+
+$font:	Raleway, Arial, Helvetica, sans-serif;
+
+$size-body: 17px;
+$size-smaller: 15px;
+
+// Primary Colours
+$color-primary: 	#BBB;
+$color-active: 	#333;
+$color-text:		#666;
+$color-grey:		#BBB;
+// Error Colours
+$error-main: #AE3535;
+$error-second: #FFF0F5;
+
+// Spacing
+$gutter: 20px;
+$gutter-minus: -$gutter;
+$gutter-half: $gutter / 2;
+$gutter-half-minus: -$gutter-half;
+$gutter-double: $gutter * 2;
+$gutter-double-minus: -$gutter-double;
+$gutter-triple: $gutter * 3;
+$gutter-triple-minus: -$gutter-triple;
+$radius: 5px;
+
+// Form Widths / Buttons
+$questionWidth: 180px;
+$inputWidth: calc(100% - 180px);
+$inputHeight: 50px;
+
+$dateWidth: calc((100% - 200px) / 3);
+$buttonWidth: calc(33.33% - (20px / 3));
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: $font;
+	background: #e0e0e0;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+form {
+	width: 560px;
+	padding: 30px;
+	background: #FFF;
+	margin: $gutter-double auto;
+	border-radius: 6px;
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+
+
+/* QUESTION STYLES */
+.question {
+	padding: 0 0 10px;
+	font-size: 0;
+	position: relative;
+	display: block;
+}
+
+
+/* LABEL STYLES */
+label {
+	font-family: $font;
+	font-size: $size-body;
+	font-weight: 400;
+	margin-bottom: $gutter-half;
+	width: $questionWidth;
+	display: inline-block;
+	vertical-align: top;
+	padding-right: $gutter;
+	color: $color-text;
+	line-height: $inputHeight;
+}
+
+
+/* INPUT STYLES */
+input {
+	border: 2px solid $color-grey;
+	padding: 0 $gutter;
+	color: $color-text;
+	display: inline-block;
+	width: $inputWidth;
+	max-width: 100%;
+	height: $inputHeight;
+	font-size: $size-body;
+	font-family: $font;
+	.good & {
+		border: 2px solid #B4D411;
+		color: #B4D411;
+	}
+	.error & {
+		border: 2px solid $error-main;
+	}
+}
+
+.date-input {
+	margin-right: $gutter-half;
+	input {
+		width: $dateWidth;
+	}
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+
+
+
+
+
+.error-message {
+	font-size: 12px;
+	color: #AE3535;
+	font-weight: bold;
+	border: 2px solid #AE3535;
+	padding: 5px 10px;
+	display: none;
+	background: #ffe0e0;
+	margin-left: 180px;
+	.error & {
+		display: block;
+	}
+}
+
+
+
+button {
+	border: 0 none;
+	width: $inputWidth;
+	height: $inputHeight;
+	margin-left: $questionWidth;
+	border-radius: 5px;
+	background: $color-active;
+	color: #FFF;
+	font-size: $size-body;
+	font-family: $font;
+	font-weight: 600;
+}
+
+fieldset.question {
+	border: 0;
+	margin-left: $questionWidth;
+	padding: 0 0 $gutter-half;
+	font-size: 0;
+	position: relative;
+	display: block;
+	max-width: 100%;
+	// legend styles
+	legend {
+		font-size: $size-body;
+		margin-bottom: $gutter-half;
+		width: $questionWidth;
+		display: inline-block;
+		vertical-align: top;
+		padding-right: $gutter;
+		color: $color-text;
+		line-height: $inputHeight;
+		letter-spacing: -0.04em;
+		position: absolute;
+		top:0;
+		left: -$questionWidth;
+	}
+	// label used as button
+	label {
+		display: inline-block;
+		width: $buttonWidth;
+		height: $inputHeight;
+		margin-right: $gutter-half;
+		margin-bottom: $gutter-half;
+		padding: 9px $radius;
+		line-height: 1.4;
+		background: $color-primary;
+		text-align: center;
+		font-size: $size-smaller;
+		color: #FFF;
+		text-align: center;
+		cursor: pointer;
+		border-radius: 5px;
+		&:nth-of-type(3n) {
+			margin-right: 0;
+		}
+		&.single-line {
+			padding: 0 $radius;
+			line-height: $inputHeight;
+		}
+	}
+	
+	// fieldset has error
+	&.error {
+		label {
+			background: $error-main;
+		}
+	}
+
+	// style hovered button
+	input:hover + label {
+		background: darken($color-primary, 25%);
+		color: #fff;
+	}
+	// style checked button
+	input:focus + label,
+	input:checked + label {
+		background: $color-active;
+		color: #fff;
+	}
+	
+	// accessible hide inputs
+	input {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+}
